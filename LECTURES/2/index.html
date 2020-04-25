@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="game()">Do function</button>
+    <script>
+        function game () {
+            // 1 - пользователь выбирает "оружие"
+            // 2 - компьютер загадывает случайное "оружие"
+            // 3 - определение победителя
+            // 4 - оглашение результата
+            let winner = null;
+
+            let user = +prompt('1 - камень \n2 - ножницы \n3 - бумага');
+
+            let skynet = Math.floor(Math.random() * 3) + 1;
+
+            if ((user == 1 && skynet == 2) || (user == 2 && skynet == 3) || (user == 3 && skynet == 1)) {
+                winner = 'Пользователь';
+            } else if (user === skynet) {
+                winner = 'Ничья';
+            } else {
+                winner = 'SkyNet';
+            }
+            
+            console.log(winner);
+        }
+
+
+        // операторы
+        // Операторы инкремента и декремента
+        // i++ ++i //инкремент
+        // i-- --i //декремент
+
+        // let a = 0;
+        // //a +/- 1
+        // // a++; // a == 1      // a-- // a == -1
+        // // a++; // a == 2      // a-- // a == -2
+
+        // // a +/- n
+        // a += 5; // 5
+        // a += 5; // 10
+        // a -= 5; // 5
+        // a -= 5; // 0
+
+        // a = 10;
+        // a *= 5; //50
+        // a /= 10; //5
+
+        // Проверка условий
+        // 1) If...else(if)
+        // 2) Switch
+        // 3) Тернарный оператор
+
+        // 3) Тернарный оператор 
+        // let a = +prompt('Введите число, не ноль'); //prompt возвращает String '100' >>> 100
+
+        // a > 0 ? console.log(a + ' - положительное') : console.log(a + ' - отрицательное');
+
+        // console.log(a + (a > 0 ? ' - положительное' : ' - отрицательное'));
+
+        // let result = a > 0 ? ' - положительное' : ' - отрицательное';
+        // console.log( a + result );
+
+        // 2) Switch
+        // глупый выбор
+
+        // let a = +prompt('Выберите: 1 - Камень; 2 - Ножницы; 3 - Бумага;');
+
+        // switch (a) {
+        //     case 1: 
+        //         console.log('Вы выбрали камень');
+        //         break;
+        //     case 2: 
+        //         console.log('Вы выбрали ножницы');
+        //         break;
+        //     case 3: 
+        //         console.log('Вы выбрали бумагу');
+        //         break;
+        //     default:
+        //         alert('Тебе было сказано что писать.');
+        //         break;
+        // }
+        
+        // 1) If
+        // Умник
+        // let a = +prompt('Введите число');
+
+        // if (a > 0) {
+        //     console.log(a + ' - положительное число');
+        // } else if (a < 0) {
+        //     console.log(a + ' - отрицательное число');
+        // } else if (a === 0) {
+        //     console.log('введен ноль');
+        // } else {
+        //     console.log('введено не число');
+        // }
+
+        // Функции
+
+        // именные функции
+        // function someName (parameter1, param2) {
+        //     console.log('Привет, я функция!');
+        //     console.log(parameter1 + ' первый параметр');
+        //     console.log(param2 + ' второй параметр');
+        // }
+
+        // someName();
+
+        // let a = +prompt('Введите первое число');
+        // let b = +prompt('Введите второе число');
+
+        // function sum (a, b) {
+        //     console.log('Результат равен ' + (a + b));
+        // }
+
+        // function sum2 (a, b) {
+        //     return a + b;
+        // }
+
+        // Анонимные
+        // ES5
+        // let someFunction = function(param) {
+        //     return param + 1;
+        // }
+
+        // //ES6
+        // let someFuncES6 = (param) => {
+        //     return param + 1;
+        // }
+
+        // let someFuncES6Min = param => param + 1;
+
+
+    </script>
+</body>
+</html>
