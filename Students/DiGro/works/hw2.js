@@ -82,13 +82,8 @@ function hw8() {
             return val * power(val, pow - 1);
         }
     }
-    function isNumber(val) {
-        // negative or positive
-        return /^[-]?\d+$/.test(val);
-    }
-    let check1 = isNumber(val)
-    let check2 = isNumber(pow)
-    if (check1 && check2) {
+
+    if (Number.isInteger(val) && Number.isInteger(pow)) {
         console.log(power(val, pow));
     } else {
         alert('Необходимо писать числа');
