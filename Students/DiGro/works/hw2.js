@@ -31,6 +31,7 @@ function hw3() {
 function hw4() {
     let a = Math.floor(Math.random() * 15)
     switch (a) {
+        case 0: console.log('0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
         case 1: console.log('1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
         case 2: console.log('2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
         case 3: console.log('3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
@@ -52,7 +53,7 @@ function hw4() {
 function hw6() {
     let arg1 = +prompt('Введите первый аргумент: ');
     let arg2 = +prompt('Введите второй аргумент: ');
-    let operation = prompt('Введите оператор: ');
+    let operation = prompt('Введите оператор (sum,diff,mult,div): ');
     function mathOperation(arg1, arg2, operation) {
         switch (operation) {
             case 'sum': res = sum(arg1, arg2); break;
