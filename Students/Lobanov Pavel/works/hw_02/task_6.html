@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function mathOperation(arg1, arg2, operation) {
+            switch (operation) {
+                case "add":
+                    return add(a, b);
+                case "sub":
+                    return sub(a, b);
+                case "mult":
+                    return mult(a, b);
+                case "div":
+                    return div(a, b);
+                default:
+                    return undefined;
+            }
+
+        }
+
+        function add(a, b) {
+            return a + b;
+        }
+
+        function sub(a, b) {
+            return a - b;
+        }
+
+        function mult(a, b) {
+            return a * b;
+        }
+
+        function div(a, b) {
+            return a / b;
+        }
+
+        let a = +prompt("Введите a:");
+        let b = +prompt("Введите b:");
+
+        console.log("add:", mathOperation(a, b, "add"));
+        console.log("sub:", mathOperation(a, b, "sub"));
+        console.log("mult:", mathOperation(a, b, "mult"));
+        console.log("div:", mathOperation(a, b, "div"));
+    </script>
+</body>
+</html>
