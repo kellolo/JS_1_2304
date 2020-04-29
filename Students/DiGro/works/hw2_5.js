@@ -1,19 +1,16 @@
 // hw 5
 
 function sum(a, b) {
-    res = (a + b);
-    return res;
+    let res = (a + b);
+    return;
 }
 
 function diff(a, b) {
-    res = (a - b);
-    return res;
+    return a - b;
 }
 function mult(a, b) {
-    res = (a * b);
-    return res;
+    return a * b;
 }
 function div(a, b) {
-    res = (a / b);
-    return res;
+    return a / b;
 }

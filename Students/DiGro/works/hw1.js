@@ -1,3 +1,10 @@
+function choise(arg) {
+    switch (arg) {
+        case 1: res = rock; break;
+        case 2: res = scissors; break;
+        case 3: res = paper; break;
+    } return res
+}
 function game() {
     let winner = null;
     let rock = 'камень';
@@ -14,12 +21,6 @@ function game() {
     } else {
         winner = 'компьютер';
     }
-    function choise(arg) {
-        switch (arg) {
-            case 1: res = rock; break;
-            case 2: res = scissors; break;
-            case 3: res = paper; break;
-        } return res
-    }
+
     console.log('Победитель: ' + winner + '\nПользователь выбрал: ' + choise(user) + '\nКомпьютер выбрал: ' + choise(skynet));
 }

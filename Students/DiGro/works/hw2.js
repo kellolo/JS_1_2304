@@ -31,22 +31,22 @@ function hw3() {
 function hw4() {
     let a = Math.floor(Math.random() * 15)
     switch (a) {
-        case 0: console.log('0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
-        case 1: console.log('1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
-        case 2: console.log('2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
-        case 3: console.log('3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
-        case 4: console.log('4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
-        case 5: console.log('5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
-        case 6: console.log('6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
-        case 7: console.log('7, 8, 9, 10, 11, 12, 13, 14, 15');
-        case 8: console.log('8, 9, 10, 11, 12, 13, 14, 15');
-        case 9: console.log('9, 10, 11, 12, 13, 14, 15');
-        case 10: console.log('10, 11, 12, 13, 14, 15');
-        case 11: console.log('11, 12, 13, 14, 15');
-        case 12: console.log('12, 13, 14, 15');
-        case 13: console.log('13, 14, 15');
-        case 14: console.log('14, 15');
-        case 15: console.log('15');
+        case 0: console.log(a++);
+        case 1: console.log(a++);
+        case 2: console.log(a++);
+        case 3: console.log(a++);
+        case 4: console.log(a++);
+        case 5: console.log(a++);
+        case 6: console.log(a++);
+        case 7: console.log(a++);
+        case 8: console.log(a++);
+        case 9: console.log(a++);
+        case 10: console.log(a++);
+        case 11: console.log(a++);
+        case 12: console.log(a++);
+        case 13: console.log(a++);
+        case 14: console.log(a++);
+        case 15: console.log(a++);
     }
 }
 
@@ -56,13 +56,12 @@ function hw6() {
     let operation = prompt('Введите оператор (sum,diff,mult,div): ');
     function mathOperation(arg1, arg2, operation) {
         switch (operation) {
-            case 'sum': res = sum(arg1, arg2); break;
-            case 'diff': res = diff(arg1, arg2); break;
-            case 'mult': res = mult(arg1, arg2); break;
-            case 'div': res = div(arg1, arg2); break;
-            default: res = alert('Неопознанный оператор');
+            case 'sum': return sum(arg1, arg2); break;
+            case 'diff': return diff(arg1, arg2); break;
+            case 'mult': return mult(arg1, arg2); break;
+            case 'div': return div(arg1, arg2); break;
+            default: return alert('Неопознанный оператор');
         }
-        return res
     }
     console.log('Результат: ' + mathOperation(arg1, arg2, operation));
 }
@@ -78,12 +77,14 @@ function hw8() {
     function power(val, pow) {
         if (pow == 1) {
             return val;
-        } else {
+        } else if (pow > 1) {
             return val * power(val, pow - 1);
+        } else if (pow == 0) {
+            return 1;
         }
     }
 
-    if (Number.isInteger(val) && Number.isInteger(pow)) {
+    if (isNaN(val * pow)) {
         console.log(power(val, pow));
     } else {
         alert('Необходимо писать числа');
