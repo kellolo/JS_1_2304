@@ -50,19 +50,36 @@ function hw4() {
     }
 }
 
+// hw5
+function sum(a, b) {
+    let res = (a + b)
+    return res;
+}
+
+function diff(a, b) {
+    return a - b;
+}
+function mult(a, b) {
+    return a * b;
+}
+function div(a, b) {
+    return a / b;
+}
+function mathOperation(arg1, arg2, operation) {
+    switch (operation) {
+        case 'sum': return sum(arg1, arg2); break;
+        case 'diff': return diff(arg1, arg2); break;
+        case 'mult': return mult(arg1, arg2); break;
+        case 'div': return div(arg1, arg2); break;
+        default: return alert('Неопознанный оператор');
+    }
+}
+
 function hw6() {
     let arg1 = +prompt('Введите первый аргумент: ');
     let arg2 = +prompt('Введите второй аргумент: ');
     let operation = prompt('Введите оператор (sum,diff,mult,div): ');
-    function mathOperation(arg1, arg2, operation) {
-        switch (operation) {
-            case 'sum': return sum(arg1, arg2); break;
-            case 'diff': return diff(arg1, arg2); break;
-            case 'mult': return mult(arg1, arg2); break;
-            case 'div': return div(arg1, arg2); break;
-            default: return alert('Неопознанный оператор');
-        }
-    }
+
     console.log('Результат: ' + mathOperation(arg1, arg2, operation));
 }
 
@@ -71,23 +88,22 @@ function hw7() {
     console.log(null === 0);
 }
 
+function power(val, pow) {
+    if (pow == 1) {
+        return val;
+    } else if (pow > 1) {
+        return val * power(val, pow - 1);
+    } else if (pow == 0) {
+        return 1;
+    }
+}
 function hw8() {
     val = +prompt('Ведите число: ');
     pow = +prompt('Введите степень: ');
-    function power(val, pow) {
-        if (pow == 1) {
-            return val;
-        } else if (pow > 1) {
-            return val * power(val, pow - 1);
-        } else if (pow == 0) {
-            return 1;
-        }
-    }
 
     if (isNaN(val * pow)) {
-        console.log(power(val, pow));
-    } else {
         alert('Необходимо писать числа');
+    } else {
+        console.log(power(val, pow));
     }
-
 }
