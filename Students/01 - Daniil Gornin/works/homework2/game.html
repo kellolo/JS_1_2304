@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<button onclick="game()">Do function</button>
+    <script>
+        function game () {
+
+            function item_to_word(item){
+                let item_name = null;
+                switch (item) {
+                    case 1:
+                        item_name = 'камень';
+                        break;
+                    case 2:
+                        item_name = 'ножницы';
+                        break;
+                    case 3:
+                        item_name = 'бумага';
+                        break;
+                    default:
+                        item_name = 'ничего';
+                        break;
+                }
+                return item_name;
+            }
+
+            // 1 - пользователь выбирает "оружие"
+            // 2 - компьютер загадывает случайное "оружие"
+            // 3 - определение победителя
+            // 4 - оглашение результата
+
+            let winner = null;
+            let user_item = null;
+            let skynet_item = null;
+
+
+            let user = +prompt('1 - камень \n2 - ножницы \n3 - бумага');
+
+            let skynet = Math.floor(Math.random() * 3) + 1;
+
+            if ((user == 1 && skynet == 2) || (user == 2 && skynet == 3) || (user == 3 && skynet == 1)) {
+                winner = 'Пользователь';
+            } else if (user === skynet) {
+                winner = 'Ничья';
+            } else {
+                winner = 'SkyNet';
+            }
+
+            user_item = item_to_word(user)
+            skynet_item = item_to_word(skynet)
+
+            console.log('Пользователь выбрал - ' + user_item)
+            console.log('Скайнет выбрал - ' + skynet_item)
+            console.log('Победитель: ' + winner)
+        }
+    </script>
+</body>
+</html>
