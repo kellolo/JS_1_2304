@@ -34,7 +34,6 @@ function hw2() {
     console.log(admin);
 }
 
-// 1000108
 function hw3() {
     let a = Math.floor(Math.random() * (100 - (-100) + 1) - 100)
     let b = Math.floor(Math.random() * (100 - (-100) + 1) - 100)
