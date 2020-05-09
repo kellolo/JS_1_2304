@@ -69,11 +69,11 @@ function hw3_6() {
         const userStr = prompt(`Попытка № ${tryCount}.\nВведите 4 значное число без повторяющихся чисел:`);
         if (isNumbers(userStr) && isUniq(userStr)) {
             const result = getCowOrBull(userStr, compStr);
-            [0, 2, 1, 0]
             if (getBullCount(result) === 4) {
-                console.log(`Вы выиграли c ${tryCount} попытки!`)
+                console.log(`Вы выиграли c ${tryCount} попытки!`);
                 break;
             } else {
+                console.log(`Попытка: ${tryCount}\nЧисло пользователя: ${userStr}`);
                 console.log(`Коров: ${getCowCount(result)} Быков: ${getBullCount(result)}`);
             }
         } else {
@@ -84,7 +84,7 @@ function hw3_6() {
     }
 
     if (tryCount > maxTryCount) {
-        console.log(`Вы проиграли, так как использовали ${tryCount - 1} попыток!`);
+        console.log(`Вы проиграли, так как использовали ${tryCount - 1} попыток!\nЧисло: ${compStr} `);
     }
 };
 
