@@ -63,7 +63,7 @@ const getBullCount = (result) => getAnimalCount(result, 2);
 function hw3_6() {
     const maxTryCount = 10;
     const compStr = getUniqueRandomNumber(0, 9, 4).join('');
-    console.log('compStr:', compStr);
+    //console.log('compStr:', compStr);
     let tryCount = 1;
     while (tryCount <= maxTryCount) {
         const userStr = prompt(`Попытка № ${tryCount}.\nВведите 4 значное число без повторяющихся чисел:`);
@@ -71,20 +71,20 @@ function hw3_6() {
             const result = getCowOrBull(userStr, compStr);
             [0, 2, 1, 0]
             if (getBullCount(result) === 4) {
-                alert(`Вы выиграли c ${tryCount} попытки!`)
+                console.log(`Вы выиграли c ${tryCount} попытки!`)
                 break;
             } else {
-                alert(`Коров: ${getCowCount(result)} Быков: ${getBullCount(result)}`);
+                console.log(`Коров: ${getCowCount(result)} Быков: ${getBullCount(result)}`);
             }
         } else {
-            alert('Вы не выполнили условие!');
+            console.log('Вы не выполнили условие!');
             break;
         }
         tryCount++;
     }
 
     if (tryCount > maxTryCount) {
-        alert(`Вы проиграли, так как использовали ${tryCount - 1} попыток!`);
+        console.log(`Вы проиграли, так как использовали ${tryCount - 1} попыток!`);
     }
 };
 
