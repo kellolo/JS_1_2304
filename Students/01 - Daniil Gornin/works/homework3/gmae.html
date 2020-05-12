@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //--------------------------------------------------------------------------------------------------------------
+
+        // Задание 6
+        // Создать игру "Быки и коровы", используя доступные инструменты
+
+        // Настройки
+        let NUM_TURNS = 10; // колличество ходов
+        let NUM_WAYS = 4; // колличество отгадавыемых цыфр
+
+        // Функция игры
+        function game() {
+            let ans = null;
+            let user_ans = null;
+            let skynet_ans = "";
+            let num_way = 0;
+            let turn = NUM_TURNS;
+            let cows = 0;
+            let bulls = 0;
+            let skynet_int = null;
+            let user_int = null;
+            let ans_exit = true;
+            let score = 0;
+
+            // ответы компютера
+            console.log("Это игра \"Быки и коровы\"");
+            console.log("Цыфры в ответе не должны повторяться !!!");
+            while(num_way < NUM_WAYS){
+                while (true){
+                    ans = Math.floor(Math.random() * 9);
+                    for(let element of skynet_ans){
+                        if(parseInt(element) === ans){
+                            ans_exit = false;
+                        }
+                    }
+                    if (ans_exit){
+                        break;
+                    }
+                    else {
+                        ans_exit = true;
+                    }
+                }
+
+                skynet_ans += ans;
+                num_way++;
+            }
+            skynet_int = parseInt(skynet_ans);
+            skynet_ans = [... skynet_ans];
+
+            //
+            console.log(skynet_ans);
+            //
+
+            // Ответы пользователя
+            while(turn > 0){
+                console.log("Колличество попыток: " + turn);
+                do{user_ans = prompt("Введите " + NUM_WAYS + " значное число")} while(user_ans.length + 1 === NUM_WAYS);
+                user_int = parseInt(user_ans);
+                user_ans = [... user_ans];
+                console.log("Ваш овет: " + user_ans);
+
+                // победное условие
+                if (user_int === skynet_int){
+                    score = NUM_TURNS - turn + 1;
+                    console.log("Поздравляю ты выйграл за " + score + " ходов!");
+                    break;
+                }
+                else {
+                    for(let i = 0; i < NUM_WAYS; i++){
+                        if(skynet_ans[i] === user_ans[i]){
+                            bulls++;
+                        }else{
+                            for(let j = 0; j < NUM_WAYS; j++){
+                                if (skynet_ans[i] === user_ans[j]){
+                                    cows++;
+                                }
+                            }
+                        }
+                    }
+
+                    console.log("Коров: " + cows);
+                    console.log("Быков: " + bulls);
+                    cows = 0;
+                    bulls = 0;
+                }
+
+                turn--;
+            }
+        }
+
+        // Запуск
+        game();
+
+        //--------------------------------------------------------------------------------------------------------------
+    </script>
+</body>
+</html>
