@@ -17,7 +17,7 @@
 // work 1
 // Задать температуру в градусах по Цельсию. Вывести в alert соответствующую температуру в градусах по Фаренгейту. 
 // Подсказка: расчет идет по формуле Tf = (9 / 5) * Tc + 32, где Tf — температура по Фаренгейту, Tc — по Цельсию.
-function hw1() {
+function hw1_1() {
     let Tc = prompt('Введите температуру в цельсиях: ');
     let Tf = ((9 / 5) * Tc + 32);
     console.log('Температура: ' + Tf + 'F');
@@ -26,7 +26,7 @@ function hw1() {
 // work 2
 // Объявить две переменные: admin и name. Записать в name строку "Василий"
 // Скопировать значение из name в admin. Вывести admin (должно вывестись «Василий»)
-function hw2() {
+function hw1_2() {
     let admin;
     let name;
     name = "Василий";
@@ -34,7 +34,7 @@ function hw2() {
     console.log(admin);
 }
 
-function hw3() {
+function hw2_3() {
     let a = Math.floor(Math.random() * (100 - (-100) + 1) - 100)
     let b = Math.floor(Math.random() * (100 - (-100) + 1) - 100)
     console.log(a, b)
@@ -48,7 +48,7 @@ function hw3() {
     }
 }
 
-function hw4() {
+function hw2_4() {
     let a = Math.floor(Math.random() * 15)
     switch (a) {
         case 0: console.log(a++);
@@ -70,7 +70,7 @@ function hw4() {
     }
 }
 
-// hw5
+// hw2_5
 function sum(a, b) {
     let res = (a + b)
     return res;
@@ -95,7 +95,7 @@ function mathOperation(arg1, arg2, operation) {
     }
 }
 
-function hw6() {
+function hw2_6() {
     let arg1 = +prompt('Введите первый аргумент: ');
     let arg2 = +prompt('Введите второй аргумент: ');
     let operation = prompt('Введите оператор (sum,diff,mult,div): ');
@@ -103,7 +103,7 @@ function hw6() {
     console.log('Результат: ' + mathOperation(arg1, arg2, operation));
 }
 
-function hw7() {
+function hw2_7() {
     console.log(null == 0);
     console.log(null === 0);
 }
@@ -117,7 +117,7 @@ function power(val, pow) {
         return 1;
     }
 }
-function hw8() {
+function hw2_8() {
     val = +prompt('Ведите число: ');
     pow = +prompt('Введите степень: ');
 
