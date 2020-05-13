@@ -37,16 +37,15 @@ function hw3_5() {
 
 const getRandom = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 const getUniqueRandomNumber = (min, max, len) => {
-    let numReserve = []
+    let numReserve = [min]
     while (numReserve.length < len) {
         let randomNumber = Math.ceil(Math.random() * max);
         let found = false;
-        for (let i = min; i < numReserve.length; i++) {
-            if (numReserve[i] === randomNumber) {
+        numReserve.forEach(el => {
+            if (el == randomNumber) {
                 found = true;
-                break;
             }
-        }
+        })
         if (!found) { numReserve[numReserve.length] = randomNumber; }
     }
     return numReserve
@@ -71,6 +70,7 @@ function hw3_6() {
             const result = getCowOrBull(userStr, compStr);
             if (getBullCount(result) === 4) {
                 console.log(`Вы выиграли c ${tryCount} попытки!`);
+                console.log(`Загаданное число ${compStr}`)
                 break;
             } else {
                 console.log(`Попытка: ${tryCount}\nЧисло пользователя: ${userStr}`);
@@ -84,7 +84,7 @@ function hw3_6() {
     }
 
     if (tryCount > maxTryCount) {
-        console.log(`Вы проиграли, так как использовали ${tryCount - 1} попыток!\nЧисло: ${compStr} `);
+        console.log(`Вы проиграли, так как использовали ${tryCount - 1} попыток!\nЧисло: ${compStr}`);
     }
 };
 
