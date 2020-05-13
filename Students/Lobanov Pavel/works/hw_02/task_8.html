@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function power(val, pow) {
+            if (pow == 0) {
+                return 1;
+            }
+
+            if (pow > 0) {
+                return val*power(val, pow - 1);
+            } else {
+                pow *= -1;
+                return 1/(val*power(val, pow - 1));
+            }
+        }
+
+        console.log(power(3, 1), power(3, 2), power(3, -1), power(3, -2), power(3, -3));
+    </script>
+</body>
+</html>

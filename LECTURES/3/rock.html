@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="game()">Do function</button>
+    <script>
+        function game() {
+            let winner = null;
+            let user = +prompt('1 - камень \n2 - ножницы \n3 - бумага');
+            let skynet = Math.floor(Math.random() * 3) + 1;
+
+            console.log(check(user, skynet));
+            console.log(getResult(user, 'User'));
+            console.log(getResult(skynet, 'Terminator'));
+        }
+
+        function check(user, skynet) {
+            let winner;
+            if ((user == 1 && skynet == 2) || (user == 2 && skynet == 3) || (user == 3 && skynet == 1)) {
+                winner = 'Пользователь победил!';
+            } else if (user === skynet) {
+                winner = 'Ничья.';
+            } else {
+                winner = 'SkyNet победил!';
+            }
+            return winner;
+        }
+
+        function getResult(player, name) {
+            // let str = name + ' выбрал ';
+            let str = `${name} выбрал `; //es6
+
+            switch(player) {
+                case 1: str += 'камень'; break;
+                case 2: str += 'ножницы'; break;
+                case 3: str += 'бумага'; break;
+                default: str = 'Ошибка'; break;
+            }
+
+            return str;
+        }
+    </script>
+</body>
+</html>
