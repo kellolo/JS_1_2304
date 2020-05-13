@@ -10,7 +10,7 @@ function choise(arg) {
     }
 }
 
-function game() {
+function gameRockScissors() {
     let winner = null;
     let user = +prompt('1 - ' + choise(1) + '\n2 - ' + choise(2) + '\n3 - ' + choise(3));
     let skynet = Math.floor(Math.random() * 3) + 1;
