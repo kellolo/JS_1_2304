@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let names = ['Oleg', 'Olga', 'Peter'];
+        let ages = [32, 28, 24];
+        let users = [];
+
+        function getObjectsArray() {
+            names.forEach((name, index) => {
+                users.push(createUser(index));
+            })
+        }
+
+        function createUser(index) {
+            return {
+                name: names[index],
+                age: ages[index],
+                goWork() {
+                    console.log(this.name + ' goes work');
+                }
+            }
+        }
+
+        // let obj = {};
+        // // let obj2 = new Object();
+
+        // let misha = {
+        //     name: 'Mikhail', //свойство
+        //     age: 30,//свойство
+        //     goWork() {
+        //         console.log(this.name + ' goes work');
+        //     },
+        //     // goWork: function() {
+        //     //     console.log('Mikhail goes work');
+        //     // } // method
+        // }
+        // // let olya = ['Olga', 28]
+
+        // let olya = {
+        //     name: 'Olga',
+        //     age: 28,
+        //     goWork() {
+        //         console.log(this.name + ' goes work');
+        //     }
+        // }
+    </script>
+</body>
+</html>
