@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            background: red
+        }
+        .green {
+            background: green
+        }
+
+        .figure {
+            width: 200px;
+            height: 200px;
+        }
+
+        .square {
+            border-radius: 0;
+            transition: border-radius 1s;
+        }
+
+        .circle {
+            border-radius: 50%;
+            transition: border-radius 1s;
+        }
+
+        .container {
+            display: flex;
+            width: 50%;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 150px;
+            height: 80px;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="figure square red"></div>
+        <div class="figure square red"></div>
+        <div class="figure square red"></div>
+    </div>
+    
+
+    <br>
+
+    <button onclick="toSquare()">to Square</button> <button onclick="toCircle()">to Circle</button>
+
+    <div id="someDiv" class="container">
+
+    </div>
+    <script>
+
+        let figure = document.querySelector('.figure'); // 1 node
+        let figureCollection = [...document.querySelectorAll('.figure')]; // 1 node
+
+        function toSquare() {
+            figureCollection.forEach (node => {
+                node.classList.remove('circle');
+                node.classList.add('square');
+            })
+            
+        }
+
+        function toCircle() {
+            figureCollection.forEach (node => {
+                node.classList.remove('square');
+                node.classList.add('circle');
+            })
+        }
+
+        //getElementById >> 1 node
+        //getElementsByClassName
+        //getElementsByName
+        //getElementsByTagName
+
+        let arr = [
+            {name: 'Ann', age: 23, hobby: 'cooking'},
+            {name: 'Pete', age: 26, hobby: 'walking'},
+            {name: 'Igor', age: 21, hobby: 'cooking'},
+            {name: 'Darth Vader', age: 46, hobby: 'be a good father'},
+        ];
+
+        function renderItems(array) {
+            let container = document.querySelector('#someDiv');
+            container.innerHTML = '';
+
+            let htmlString = '';
+
+            array.forEach(item => {
+                htmlString += `
+                    <div class="card">
+                        <h2>${item.name}</h2>
+                        <br>
+                        <p>Возраст: <b>${item.age}</b></p>
+                        <p>Хобби: <b>${item.hobby}</b></p>
+                    </div>
+                `
+            });
+            container.innerHTML += htmlString;
+        }
+    </script>
+</body>
+</html>
