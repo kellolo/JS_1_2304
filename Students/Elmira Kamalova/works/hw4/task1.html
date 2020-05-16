@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Task 1 hw4</title>
+</head>
+<body>
+	<script>
+		function getUnit(num) {
+			if(isNaN(num) || (num < 0) || (num > 999)) {
+				console.log("Число должно быть целым от 0 до 999.");
+				return {};
+			}
+			return {
+				units: num % 10,
+				tens: Math.floor(num / 10) % 10,
+				hundereds: Math.floor(num / 100), 
+			}
+		}
+
+		let userNum = +prompt("Введите число в диапазоне [0 до 999], ");
+
+		console.log(getUnit(userNum));
+		
+	</script>
+</body>
+</html>
