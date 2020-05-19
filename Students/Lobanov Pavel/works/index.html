@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #shop{
+            display: flex;
+            width: 50%;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .product {
+            width: 150px;
+            height: 200px;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <button onclick="show_shop()">Show shop</button>
+    <button onclick="bulls_and_cows_game()">Play bulls and cows</button>
+    <button onclick="rock_paper_scissors_game()">Play rock paper scissors</button>
+
+    <div id='shop'>
+    </div>
+
+    <div id='bulls_and_cows'>
+    </div>
+
+    <div id='rock_paper_scissors'>
+    </div>
+
+    <script src="hw.js"></script>
+</body>
+</html>
