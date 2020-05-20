@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // let num = prompt('Enter number 0 - 99999');
+
+        // function numToObject(num) {
+        //     let arr = [...num];
+
+        //     while (arr.length !== 5) {
+        //         arr.unshift(0);
+        //     }
+
+        //     return {
+        //         de_th: +arr[0],
+        //         th: +arr[1],
+        //         hu: +arr[2],
+        //         de: +arr[3],
+        //         un: +arr[4]
+        //     }
+        // };
+
+        // console.log(numToObject(num)); //1234 0012
+
+        // basket
+        let names = ['Cat', 'Dog', 'Sechin'];
+        let prices = [100, 150, 5000000];
+        let ids = [1, 2, 3];
+
+        let catalog = {
+            items: [],
+        }
+
+        let basket = {
+            items: []
+        }
+
+        let createItem = index => ({
+            product_name: names[index],
+            price: prices[index],
+            id_product: ids[index]
+        });
+
+        let fillCatalog = () => {
+            ids.forEach((el, index) => {
+                catalog.items.push(createItem(index));
+            });
+        };
+
+        fillCatalog();
+
+        // let f1 = par => par + 100;
+
+        // let f2 = par => {
+        //     par = par + 100;
+        //     return par;
+        // }
+
+        // let f3 = () => ({
+
+        // })
+
+        // function nameF (index) {
+        //     return {
+
+        //     }
+        // }
+    </script>
+</body>
+</html>
