@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+
+    </div>
+        
+    <script>
+        let btns = document.querySelectorAll('.btn');
+        let container = document.querySelector('.wrapper');
+        container.addEventListener('click', eventFunction);
+
+        function eventFunction(evt) {
+            if (evt.target.name == 'buy-btn') {
+                // let index = evt.target.innerText - 1
+                // console.log(names[index])
+                console.log(evt.target.dataset.name);
+            }
+        }
+
+
+        let btnStr = '';
+        let names = ['Ann', 'Olga', 'Pyotr', 'Alex', 'R2-D2', 'Loontik'];
+
+        names.forEach((name, index) => {
+            btnStr += `<button class="btn" data-name="${name}" name="buy-btn">${index + 1}</button>`
+        });
+
+        container.innerHTML = btnStr;
+
+        // [...btns].forEach(btn => {
+        //     btn.onclick = eventFunction;
+        // });
+        // btn.onclick = eventFunction;
+
+        
+
+
+        // btn.onclick = clicker;
+
+        // function clicker() {
+        //     alert('clicked')
+        // }
+
+        // function another() {
+        //     alert('another clicked');
+        // }
+
+        // btn.addEventListener('click', another);
+
+        // btn.addEventListener('click', () => {
+        //     alert('another another clicked');
+        //     btn.removeEventListener('click', another);
+        // })
+    </script>
+</body>
+</html>
