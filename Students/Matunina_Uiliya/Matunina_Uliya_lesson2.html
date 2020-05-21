@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+		<!-- Задача 1. -->
+	<script>
+		var a = 1, b = 1, c, d;
+		c = ++a; alert(c); // 2 - присваивание предудущего числа переменной, потом увеличение на 1, запись увеличенного числа в переменную
+		d = b++; alert(d); // 1 - присваивание предудущего числа переменной, потом увеличение на 1, увеличенное число будет использовано при следующем вызове переменной
+		c = (2+ ++a); alert(c); // 5 - сложение: 2 + 3
+		d = (2+ b++); alert(d); // 4 - сложение: 2 + 2 (переменная увеличена, но результат в нее будет записан только при следующем обращении)
+		alert(a); // 3
+		alert(b); // 3 - отображается результат от предудущего увеличения на 1 единицу
+	</script>
+
+
+		<!-- Задача 2.-->
+	<script>
+		let a = 2; //a = 4 (умножено на 2)
+		let x = 1 + (a *= 2); //x = 5 (вычислено как 1 + 4)
+		// x = 5
+	</script>
+
+		<!-- Задача 3. -->
+	<script>
+		let a = +promt("Введите знанчение первого числа:")
+        let b = +prompt("Введите второго числаb:");
+		
+		if (a > 0 && b > 0){
+		x = a - b;
+		alert(x);
+		} else if (a < 0 && b < 0){
+			x = a * b;
+			alert (x);
+			}
+		  else if (a > 0 && b < 0 || a < 0 && b > 0) {
+		  x = a + b;
+		  alert (x);
+		  }
+
+        console.log("Результат: ", compare(a, b))
+	</script>
+	
+
+		<!-- Задача 4.  -->
+	<script>
+		let a = +prompt ('Введите число от 1 до 15');
+		switch (a) {
+		case 1:
+			alert ( 'Ваше число 1');
+			break;
+		case 2:
+			alert ( 'Ваше число 2');
+			break;
+		case 3:
+			alert ( 'Ваше число 3');
+			break;
+		case 4:
+			alert ( 'Ваше число 4');
+			break;
+		case 5:
+			alert ( 'Ваше число 5');
+			break;
+		case 6:
+			alert ( 'Ваше число 6');
+			break;
+		case 7:
+			alert ( 'Ваше число 7');
+			break;
+		case 8:
+			alert ( 'Ваше число 8');
+			break;
+		case 9:
+			alert ( 'Ваше число 9');
+			break;
+		case 10:
+			alert ( 'Ваше число 10');
+			break;
+		case 11:
+			alert ( 'Ваше число 11');
+			break;
+		case 12:
+			alert ( 'Ваше число 12');
+			break;
+		case 13:
+			alert ( 'Ваше число 13');
+			break;
+		case 14:
+			alert ( 'Ваше число 14');
+			break;
+		case 15:
+			alert ( 'Ваше число 15');
+			break;	
+		}	
+	</script>
+
+
+		<!-- Задача 5. -->
+	<script>
+		let a = 2;
+		let b = 3;
+
+		function plus(a, b) {
+    		return a + b;
+		}
+
+		function minus(a, b) {
+    		return a - b;
+		}
+
+		function div (a, b) {
+    		return a / b;
+		}
+
+		function mult (a, b) {
+    		return a + b;
+		}
+	</script>
+
+		<!-- Задача 6. -->
+	<script>
+
+		function mathOperation(arg1, arg2, operation){
+    			switch(operation){
+       				 case 'сложение':
+           				 return arg1 + arg2;
+           				 break;
+       				 case 'вычитание':
+           				 return arg1 - arg2;
+            			 break;
+        			 case 'деление':
+                      			 return arg1 / arg2;
+            			 break;
+       				 case 'умножение':
+           				 return arg1 * arg2;
+            			 break;
+   				}
+		}
+
+	</script>
+
+</body>
+</html>

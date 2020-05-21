@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        function getSimples(lim) {
+            let arr = []; // [2, 3, 5, 7...]
+            let num = 2;
+
+            while(num <= lim) {
+                if(checkNum(num, arr)) {
+                    arr.push(num);
+                }
+                num++;
+            }
+
+            return arr;
+        };
+
+        function checkNum(num, arr) {
+            let check = true;
+            for(let el of arr) {
+                if((num % el) == 0) {
+                    check = false;
+                    break;
+                }
+            };
+
+            return check;
+        };
+
+        console.log(getSimples(100));
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+
+	//1.
+
+/*let num = 2;
+let nums = [];
+while (num <= 100) {
+	let i = 2;
+	while (num % i !== 0) {
+		i++;
+	}
+	if (i == num) {
+		nums.push (i);
+	}
+num++;	
+}
+
+console.log (nums);
+
+//4.
+//for (let a = 0; a <= 9; console.log (a++)) {};
+
+//5.
+
+/*let a = 0, c = [];
+while (a<20) {
+c.push('x');
+console.log (c);
+a++;
+};*/
+
+
+//bullsCows game
+
+randomNum ();
+game();
+gameplay();
+
+
+function randomNum () { 
+	comp = []; 
+	for (let i = 0; i <4; i++) {
+		let num = Math.floor(Math.random() * 9) + 1;
+
+		if (i == 0) {
+			comp[0] = num;
+		}
+		else{
+			while (comp.indexOf( num, 0 ) != -1){ 
+				num = Math.floor(Math.random() * 9) + 1;}
+				comp[i] = num; 
+			}
+		}
+	}
+
+	function game() {
+		bullscows = [0,0];
+		let user = prompt ('введи число');
+		userR = user.split ('');
+		for (let i = 0; i<4; i++) {
+			if (userR[i] == comp[i]) {
+				bullscows [0] ++}
+				else if (comp.indexOf(+(userR[i])) != -1) {
+					bullscows[1]++;
+				}
+				else if (userR.length !== comp.length) {
+					alert ('пиши что велено!');
+					game ();}
+			}
+
+
+		}
+
+		function gameplay () {
+			if (bullscows [0] == 4) {
+				alert ('ты победил ' + comp);
+			}
+			else {alert ('быков:'+bullscows[0]+' / коров:'+bullscows[1]);
+			game ();
+			gameplay();
+		}
+	}
+	
+
+
+
+</script>	
+</body>
+</html>

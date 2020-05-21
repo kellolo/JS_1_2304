@@ -1,4 +1,4 @@
-// 3. Объявить две целочисленные переменные a и b и задать им произвольные начальные значения. 
+// 3. Объявить две целочисленные переменные a и b и задать им произвольные начальные значения.
 // Затем написать скрипт, который работает по следующему принципу:
 // если a и b положительные, вывести их разность;
 // если а и b отрицательные, вывести их произведение;
@@ -14,7 +14,27 @@
 // 8. *С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power(val, pow), где val – 
 // заданное число, pow – степень.
 
-function hw3() {
+// work 1
+// Задать температуру в градусах по Цельсию. Вывести в alert соответствующую температуру в градусах по Фаренгейту. 
+// Подсказка: расчет идет по формуле Tf = (9 / 5) * Tc + 32, где Tf — температура по Фаренгейту, Tc — по Цельсию.
+function hw1_1() {
+    let Tc = prompt('Введите температуру в цельсиях: ');
+    let Tf = ((9 / 5) * Tc + 32);
+    console.log('Температура: ' + Tf + 'F');
+}
+
+// work 2
+// Объявить две переменные: admin и name. Записать в name строку "Василий"
+// Скопировать значение из name в admin. Вывести admin (должно вывестись «Василий»)
+function hw1_2() {
+    let admin;
+    let name;
+    name = "Василий";
+    admin = name;
+    console.log(admin);
+}
+
+function hw2_3() {
     let a = Math.floor(Math.random() * (100 - (-100) + 1) - 100)
     let b = Math.floor(Math.random() * (100 - (-100) + 1) - 100)
     console.log(a, b)
@@ -28,65 +48,82 @@ function hw3() {
     }
 }
 
-function hw4() {
+function hw2_4() {
     let a = Math.floor(Math.random() * 15)
     switch (a) {
-        case 0: console.log('0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
-        case 1: console.log('1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
-        case 2: console.log('2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
-        case 3: console.log('3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
-        case 4: console.log('4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
-        case 5: console.log('5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
-        case 6: console.log('6, 7, 8, 9, 10, 11, 12, 13, 14, 15');
-        case 7: console.log('7, 8, 9, 10, 11, 12, 13, 14, 15');
-        case 8: console.log('8, 9, 10, 11, 12, 13, 14, 15');
-        case 9: console.log('9, 10, 11, 12, 13, 14, 15');
-        case 10: console.log('10, 11, 12, 13, 14, 15');
-        case 11: console.log('11, 12, 13, 14, 15');
-        case 12: console.log('12, 13, 14, 15');
-        case 13: console.log('13, 14, 15');
-        case 14: console.log('14, 15');
-        case 15: console.log('15');
+        case 0: console.log(a++);
+        case 1: console.log(a++);
+        case 2: console.log(a++);
+        case 3: console.log(a++);
+        case 4: console.log(a++);
+        case 5: console.log(a++);
+        case 6: console.log(a++);
+        case 7: console.log(a++);
+        case 8: console.log(a++);
+        case 9: console.log(a++);
+        case 10: console.log(a++);
+        case 11: console.log(a++);
+        case 12: console.log(a++);
+        case 13: console.log(a++);
+        case 14: console.log(a++);
+        case 15: console.log(a++);
     }
 }
 
-function hw6() {
+// hw2_5
+function sum(a, b) {
+    let res = (a + b)
+    return res;
+}
+
+function diff(a, b) {
+    return a - b;
+}
+function mult(a, b) {
+    return a * b;
+}
+function div(a, b) {
+    return a / b;
+}
+function mathOperation(arg1, arg2, operation) {
+    switch (operation) {
+        case 'sum': return sum(arg1, arg2); break;
+        case 'diff': return diff(arg1, arg2); break;
+        case 'mult': return mult(arg1, arg2); break;
+        case 'div': return div(arg1, arg2); break;
+        default: return alert('Неопознанный оператор');
+    }
+}
+
+function hw2_6() {
     let arg1 = +prompt('Введите первый аргумент: ');
     let arg2 = +prompt('Введите второй аргумент: ');
     let operation = prompt('Введите оператор (sum,diff,mult,div): ');
-    function mathOperation(arg1, arg2, operation) {
-        switch (operation) {
-            case 'sum': res = sum(arg1, arg2); break;
-            case 'diff': res = diff(arg1, arg2); break;
-            case 'mult': res = mult(arg1, arg2); break;
-            case 'div': res = div(arg1, arg2); break;
-            default: res = alert('Неопознанный оператор');
-        }
-        return res
-    }
+
     console.log('Результат: ' + mathOperation(arg1, arg2, operation));
 }
 
-function hw7() {
+function hw2_7() {
     console.log(null == 0);
     console.log(null === 0);
 }
 
-function hw8() {
+function power(val, pow) {
+    if (pow == 1) {
+        return val;
+    } else if (pow > 1) {
+        return val * power(val, pow - 1);
+    } else if (pow == 0) {
+        return 1;
+    }
+}
+function hw2_8() {
     val = +prompt('Ведите число: ');
     pow = +prompt('Введите степень: ');
-    function power(val, pow) {
-        if (pow == 1) {
-            return val;
-        } else {
-            return val * power(val, pow - 1);
-        }
-    }
 
-    if (Number.isInteger(val) && Number.isInteger(pow)) {
-        console.log(power(val, pow));
-    } else {
+    if (isNaN(val * pow)) {
         alert('Необходимо писать числа');
+    } else {
+        console.log(power(val, pow));
     }
-
 }
