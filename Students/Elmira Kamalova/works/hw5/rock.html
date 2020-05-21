@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Игра "Камень, ножницы, бумага"</h1>
+    <h4>Правила игры</h4>
+        <h3> Победитель определяется по правилам:</h3>
+        <ul>
+            <li>камень побеждает ножницы (камень затупляет ножницы)</li>
+            <li>ножницы побеждают бумагу (ножницы разрезают бумагу)</li>
+            <li>бумага побеждает камень (бумага заворачивает камень)</li>
+            <li>ничья, если у всех игроков одновременно показан одинаковый знак</li>
+        </ul>
+        <p> Играют до тех пор, пока не останется один игрок. Он и будет победителем.</p>
+    <br>
+    <p>Готовы начать игру?<br>Давайте поиграем с компьютером.</p>
+
+    <ul>
+    <br>Выберите цифру: <input type="number" id="userNumber">
+        <li>1 - камень</li>
+        <li>2 - ножницы</li>
+        <li>3 - бумага</li>
+    <ul>
+    <br><button onclick="game()">Играть!</button><br>
+    <p id="changePh" class="change"></p>
+
+    <script>
+        function game() {
+            let winner = null;
+            let user = +document.getElementById("userNumber").value;
+            let skynet = Math.floor(Math.random() * 3) + 1;
+
+            document.getElementById('changePh').innerHTML = document.getElementById('changePh').innerHTML + (check(user, skynet));
+            document.getElementById('changePh').innerHTML = document.getElementById('changePh').innerHTML + (getResult(user, '<br>Пользователь '));
+            document.getElementById('changePh').innerHTML = document.getElementById('changePh').innerHTML + (getResult(skynet, '<br>Компьютер '));
+        }
+
+        function check(user, skynet) {
+            let winner;
+            if ((user == 1 && skynet == 2) || (user == 2 && skynet == 3) || (user == 3 && skynet == 1)) {
+                winner = 'Вы выиграли!';
+            } else if (user === skynet) {
+                winner = 'Ничья. <br>';
+            } else {
+                winner = 'Компьютер победил!<br>';
+            }
+            return winner;
+        }
+
+        function getResult(player, name) {
+            let str = `${name} выбрал `; 
+
+            switch(player) {
+                case 1: str += 'камень'; break;
+                case 2: str += 'ножницы'; break;
+                case 3: str += 'бумага'; break;
+                default: str = 'Ошибка'; break;
+            }
+
+            return str;
+        }
+    </script>
+</body>
+</html>
