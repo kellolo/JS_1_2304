@@ -120,13 +120,12 @@ let abobe = {
 abobe.init();
 
 let saveButton = document.getElementById('saveImg');
-let count = 1;
 saveButton.addEventListener('click', function (e) {
     let dataURL = abobe.canvas.toDataURL('image/png');
     let a = document.createElement("a");
+    let picName = prompt("Введите имя файла: ");
     a.href = dataURL;
-    a.download = `${count}.png`;
-    count++;
+    a.download = `${picName}.png`;
     document.body.appendChild(a);
     a.click();
     setTimeout(function() {
