@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>AboBE ФОТОЖАБ</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="./src/layout/css/stile.css">
+</head>
+<body>
+<div class="container" id="app">
+	<div class="paint">
+			<div id="tools">
+				<div class="btn-group btn-group-toggle" data-toggle="buttons">
+					<button 
+						name="tool"
+						class="toolButton btn btn-outline-secondary" 
+						data-tool='pencil'
+						data-toggle="tooltip" 
+						data-placement="bottom" 
+					title="Brush"><input type="radio" name="options" id="option1" autocomplete="off" checked>🖉</button>
+					<button 
+						name="tool"
+						class="toolButton btn btn-outline-secondary" 
+						data-tool='fill' 
+						data-toggle="tooltip" 
+						data-placement="bottom" 
+					title="Fill All"><input type="radio" name="options" id="option1" autocomplete="off" checked>🌢</button>
+					<button 
+						name="tool"
+						class="toolButton btn btn-outline-secondary" 
+						data-tool='eraser' 
+						data-toggle="tooltip" 
+						data-placement="bottom" 
+					title="Eraser"><input type="radio" name="options" id="option1" autocomplete="off" checked>⎚</button>
+					<button 
+						name="tool"
+						class="toolButton btn btn-outline-secondary" 
+						data-tool='square' 
+						data-toggle="tooltip" 
+						data-placement="bottom" 
+					title="Square"><input type="radio" name="options" id="option1" autocomplete="off" checked>⎕</button>
+					<button 
+						name="tool"
+						class="toolButton btn btn-outline-secondary" 
+						data-tool='clearCnv' 
+						data-toggle="tooltip" 
+						data-placement="bottom" 
+					title="Clear"><input type="radio" name="options" id="option1" autocomplete="off" checked>✘</button>	
+				</div>
+
+				<div class="color">
+					<input type="color" name="tool" data-tool="Color">
+				</div>
+				<div class="size">
+					<input name="tool" data-tool="BrushSize" min="1" max="100" value="0" type="range">
+				</div> 
+				
+				<div class="saveImg">
+					<button class="btn btn-light" id='saveImg'>🖫 Save</button>	
+				</div>
+			</div>
+		</div>
+	<div class="canv">
+		<canvas id="canv" width="1000" height="600"></canvas>
+	</div>
+	<div class="tools">
+		<div class="coordinates">
+			<p id="x"><b>x: </b> <span id="xCoord"></span></p>
+			<p id="y"><b>y: </b> <span id="yCoord"></span></p>
+		</div>
+	</div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="./src/js/app.js"></script>
+
+</body>
+</html>
