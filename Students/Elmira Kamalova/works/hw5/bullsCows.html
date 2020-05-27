@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Игра быки и коровы</title>
+</head>
+<body>
+	<h1>Игра быки и коровы</h1>
+	<h4>Правила игры</h4>
+		<ul>
+			<li>В игре принимает участие два человека, каждый из которых в начале игры загадывает 4-х значное число. Цифры в загаданном числе не должны повторяться.</li>
+			<li>Противники по очереди пытаются отгадать число оппонента, задавая вопрос в таком же формате 4-х значного числа.</li>
+			<li>Противник в ответе должен указать количество быков и коров. Бык - это угаданная цифра на правильной позиции, а корова- это правильная цифра , но не на своей позиции.</li>
+			<li>Ввод цифр идёт до тех пор пока кто-то первым не разгадает число противника.</li>
+		</ul><br>
+		<button onclick="game()">Новая игра</button><p id="enterNums"><br></p>
+		
+		Введите 4 цифры <input type="number" class="compare-numbers"> <button onclick="startGame()">Проверка</button> <br>
+		<p id="changePh" class="change"></p>
+			<script>
+				
+				let newArr = [];
+
+				function game() {
+					while (newArr.length < 4) {
+						let randomNum = Math.floor(Math.random() * 10);
+
+						if (!newArr.includes(randomNum)) {
+							newArr.push(randomNum);
+						}
+
+					} console.log(newArr);
+					document.getElementById('enterNums').innerHTML = "<u>Игра началась. Вводите числа.</u>";
+				}
+
+
+				function startGame() {
+					let userString = document.querySelector('.compare-numbers');
+					let userArrString = userString.value.split('');
+					let userArrInt = strToInt(userArrString);
+					compareArr(newArr, userArrInt);
+
+				}
+
+				function strToInt(a) {
+					// функция принимает в качестве агрумента массив строк
+					// возвращает массив чисел
+					let userArrReturn = [];
+					for (let i = 0; i <= a.length - 1; i++) {
+						if (!userArrReturn.includes(+a[i])) {
+							userArrReturn.push(+a[i]);
+						} else {
+							document.getElementById('changePh').innerHTML = document.getElementById('changePh').innerHTML +"<br>Числа не должны повторяться.";
+							break;
+						}
+
+					}
+					return userArrReturn;
+				}
+
+				function compareArr(arr1, arr2) {
+					let bulls = 0;
+					let cows = 0;
+					for (let i = 0; i <= arr1.length - 1; i++) {
+						if (arr1[i] == arr2[i]) {
+							bulls++;
+						} else if (arr1.includes(arr2[i])) {
+							cows++;
+						} 
+					}
+					if (bulls == 4) {
+						document.getElementById('changePh').innerHTML = document.getElementById('changePh').innerHTML + "<br><br><i>Отлично, вы угадали!</i>" + "<br>Быков " + bulls + ", коров " + cows;
+						
+					} else {
+						document.getElementById('changePh').innerHTML = document.getElementById('changePh').innerHTML + "<br><br>Ваш выбор " + arr2 + "<br>Быков " + bulls + ", коров " + cows;
+					}
+				}
+
+				
+	
+
+			</script>
+</body>
+</html>

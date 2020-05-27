@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Задание 1</title>
+</head>
+<body>
+	
+
+	<script>
+		
+		let userNum = prompt("Введите число от 0 до 999");
+
+		function numToObject (num) {
+			let arr = [...num];
+
+			while (arr.length !== 4) {
+				arr.unshift(0);
+			}
+
+			return {
+				th:  +arr[0];
+				hun: +arr[1];
+				dec: +arr[2];
+				un: +arr[3];
+			}
+		};
+
+		console.log(numToObject(userNum));
+	</script>
+</body>
+</html>
