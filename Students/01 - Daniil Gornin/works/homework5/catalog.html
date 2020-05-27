@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .card {
+            width: 200px;
+            height: 150px;
+            background-color: #f7f7f7;
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex; justify-content: center" id="catalog">
+
+    </div>
+    <script>
+        let catalog = [];
+        let names = ["chair", "sofa", "armchair"];
+        let costs = [2000, 10000, 6500];
+        let htmlString = '';
+
+        function displayCatalog() {
+            getObjectsArray();
+            catalog.forEach(item => {
+                htmlString += `
+                    <div class="card">
+                        <h3>${item.name}</h3>
+                        <p>${item.cost}</p>
+                    </div>
+                `;
+            });
+
+            document.querySelector('#catalog').innerHTML = htmlString;
+        }
+
+        function getObjectsArray() {
+            names.forEach((name, index) => {
+                catalog.push(createProduct(index));
+            })
+        }
+
+        function createProduct(index) {
+            return {
+                name: names[index],
+                cost: costs[index],
+            }
+        }
+
+        displayCatalog();
+    </script>
+</body>
+</html>
