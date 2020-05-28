@@ -49,7 +49,7 @@ let abobe = {
         }
     },
     _changeHandler(e) {
-        if(e.target.name === 'tool') {
+        if(e.target.name === 'tool-input') {
             this.editor[`current${e.target.dataset.tool}`] = e.target.value;
         }
     },
@@ -98,6 +98,7 @@ let abobe = {
         }
     },
     _square() {
+        this.ctx.fillStyle = this.editor.currentColor;
         let size = this.editor.currentBrushSize;
         this.canvas.onmousemove = () => {
             this.ctx.beginPath();
@@ -111,7 +112,14 @@ let abobe = {
         this.ctx.clearRect(0, 0, this.canvas.clientWidth, this.canvas.height);
     },
     _save() {
+        let img = new Image();
+        img.src = this.canvas.toDataURL();
 
+        let link = document.createElement('a');
+        link.setAttribute('href', img.src);
+        link.setAttribute('download', 'canvas image');
+
+        link.click();
     }
 }
 
