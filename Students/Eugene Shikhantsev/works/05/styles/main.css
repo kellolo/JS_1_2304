@@ -1,0 +1,66 @@
+.nav-link {
+    margin-right: 5rem;
+}
+
+.navbar-brand {
+    margin-right: 5rem;
+}
+
+h1 {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.card {
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+    border: none;
+}
+
+.btn-primary, .btn {
+    box-shadow: none !important;
+}
+
+
+.cart {
+    position: fixed;
+    right: 1rem;
+    top: 7rem;
+    float: right;
+    /* margin: 0, 0, 2rem, 2rem; */
+    width: 20rem;
+    z-index: 10;
+}
+
+.cart p {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    margin: 0;
+    position: relative;
+    margin-bottom: 2.4rem;
+}
+
+.cart .cart_btn {
+    justify-self: end;
+    width: 8rem;
+    /* position: relative;
+    right: 0; */
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 20;
+}
+
+.cart a {
+    min-width: 100%;
+}
+
+.cart .card, .card-body {
+    margin: 0;
+}
+
+.cart .card-body {
+    background-color: rgba(0,0,0, .9);
+    color: #fff;
+}
