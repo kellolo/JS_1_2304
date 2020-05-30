@@ -21,13 +21,17 @@ h1 {
     box-shadow: none !important;
 }
 
+.catalog-items {
+    margin: 0;
+}
+
 
 .cart {
     position: fixed;
     right: 1rem;
     top: 7rem;
     float: right;
-    /* margin: 0, 0, 2rem, 2rem; */
+    margin: 0, 0, 2rem, 2rem;
     width: 20rem;
     z-index: 10;
 }
@@ -44,8 +48,8 @@ h1 {
 .cart .cart_btn {
     justify-self: end;
     width: 8rem;
-    /* position: relative;
-    right: 0; */
+    position: relative;
+    right: 0;
     position: absolute;
     right: 0;
     top: 0;
