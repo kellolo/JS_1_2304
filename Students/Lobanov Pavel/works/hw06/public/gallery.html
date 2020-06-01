@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="big_picture"></div>
+    <div id="gallery"></div>
+    <div id="btns">
+        <button onclick="prevPicture()"><<<</button>
+        <button onclick="nextPicture()">>>></button>
+    </div>
+    
+    <script>
+        let gallery = [
+            "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/649d7f65-b927-405e-8b71-1125e17f32ef/ddxqfkb-4575ed2e-2a5f-4e61-9fde-0845bacb0df3.jpg/v1/fill/w_1038,h_770,q_70,strp/feeding_your_inward_light_by_borda_ddxqfkb-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0xMTg3IiwicGF0aCI6IlwvZlwvNjQ5ZDdmNjUtYjkyNy00MDVlLThiNzEtMTEyNWUxN2YzMmVmXC9kZHhxZmtiLTQ1NzVlZDJlLTJhNWYtNGU2MS05ZmRlLTA4NDViYWNiMGRmMy5qcGciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.ANT5FuzcVbFHi_6pPU33t2rD9mkFNaET1NabbS8Tawg", 
+            "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5c057c8c-e922-4a73-a795-509c5a2c4119/ddxq7y9-26335792-0d4b-470e-8117-0aca8f344ce5.jpg/v1/fill/w_1095,h_730,q_70,strp/factory__30min___spitpaint__by_cobaltplasma_ddxq7y9-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD04NTQiLCJwYXRoIjoiXC9mXC81YzA1N2M4Yy1lOTIyLTRhNzMtYTc5NS01MDljNWEyYzQxMTlcL2RkeHE3eTktMjYzMzU3OTItMGQ0Yi00NzBlLTgxMTctMGFjYThmMzQ0Y2U1LmpwZyIsIndpZHRoIjoiPD0xMjgwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.Wm9PL-l3Z9zu-9mTHMp2FbDIJD5Fx7_3oUoUhHsrq3U",
+            "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/fd3a8fb7-5eef-4ae8-857d-977ef347f1e3/ddxqo98-9f726f40-e16e-4c64-9297-d3463722e9e0.jpg/v1/fill/w_1192,h_670,q_70,strp/_dragon_wrath__by_era7_ddxqo98-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0xMDgwIiwicGF0aCI6IlwvZlwvZmQzYThmYjctNWVlZi00YWU4LTg1N2QtOTc3ZWYzNDdmMWUzXC9kZHhxbzk4LTlmNzI2ZjQwLWUxNmUtNGM2NC05Mjk3LWQzNDYzNzIyZTllMC5qcGciLCJ3aWR0aCI6Ijw9MTkyMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19._2ofoM4deCn8PM8bd4V7wZiIsEgOzBYxgm4DSOFQnYQ",
+            "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/31ca8292-e979-4e41-a025-8b13994f6690/ddxr5y7-1079a72b-fe73-4645-b851-7d4fcd3702fa.jpg/v1/fill/w_1192,h_670,q_70,strp/mouse_guard___tree_town_by_darekzabrocki_ddxr5y7-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0xMDgwIiwicGF0aCI6IlwvZlwvMzFjYTgyOTItZTk3OS00ZTQxLWEwMjUtOGIxMzk5NGY2NjkwXC9kZHhyNXk3LTEwNzlhNzJiLWZlNzMtNDY0NS1iODUxLTdkNGZjZDM3MDJmYS5qcGciLCJ3aWR0aCI6Ijw9MTkyMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.Ic7sMRpIx19IJBKDgysX7fuSJl8OiGTYVtmJc4ynq-8",
+        ]
+
+        function showBigPicture(index) {
+            let htmlStr = `<img src="${gallery[index]}" id="big_img" name="big-picture" data-name="${index}"  hight="600px" width="600px"/>`;
+            document.getElementById('big_picture').innerHTML = htmlStr;
+        }
+
+        function minPictureClick(evt) {
+            if (evt.target.name == 'min-picture') {
+                let index = Number(evt.target.dataset.name);
+                let htmlStr = '';
+                showBigPicture(index);
+            }
+        }
+
+        function initGallery() {
+            let htmlStr = '';
+            gallery.forEach( (item, index) => {
+                htmlStr += `<img src="${item}" name="min-picture" data-name="${index}"  hight="100px" width="100px"/>`;
+            });
+            document.getElementById('gallery').innerHTML = htmlStr;
+            document.getElementById('gallery').addEventListener('click', minPictureClick);
+            showBigPicture(0);
+        }
+
+        function prevPicture() {
+            let index = Number(document.getElementById('big_img').dataset.name);
+            --index;
+            if (index < 0) {
+                index = gallery.length - 1;
+            }
+            showBigPicture(index);
+        }
+
+        function nextPicture() {
+            let index = Number(document.getElementById('big_img').dataset.name);
+            ++index;
+            if (index >= gallery.length) {
+                index = 0;
+            }
+            showBigPicture(index);
+        }
+
+        initGallery();
+    </script>
+</body>
+</html>

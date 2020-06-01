@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	//1
+
+	/*let object = {};
+function transform () {
+	let num = prompt ('введи число')
+	if (num>999) {
+		console.log ('ту мач!');
+		return object;}
+
+else {
+	let arr = num.split('');
+	//alert(arr);
+	if (num < 10) {
+		object.единицы = arr[0];
+	}
+	else if (num > 10 && num < 100) {
+		object.единицы = arr[1];
+		object.десятки = arr[0];
+	}
+	 else {
+		object.единицы = arr[2];
+		object.десятки = arr[1];
+		object.сотни = arr[0];
+	}
+	return object;
+}
+}
+
+transform ();
+console.log(object); //объект выводится в алфавитном порядке, что решается методом Object.keys(object), но почему-то у меня не работаетю
+*/
+
+//2
+
+let pName = ['product1', 'product2', 'product3'];
+let pPrice = [1, 2, 3];
+let pCatalog = [];
+function getObjects() {
+	pName.forEach ((name, index) => {
+		pCatalog.push(createProduct(index));
+	})
+}
+function createProduct(index) {
+	return{
+		name: pName[index],
+		price: pPrice[index],
+
+	}
+}
+getObjects ();
+console.log(pCatalog);
+
+//3
+
+let globalCatalog = {};
+
+
+	globalCatalog.products = pCatalog;
+
+console.log (globalCatalog);
+
+//4
+
+let cart = {};
+</script>	
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>shop</h1>
+			<button class="cart">cart</button>
+		</header>
+		
+
+
+	</div>
+	<script>
+
+		
+
+		let pName = ['product1', 'product2', 'product3','product1', 'product2', 'product3'];
+		let pPrice = [1, 2, 3];
+		let pCatalog = [];
+		function getObjects() {
+			pName.forEach ((name, index) => {
+				pCatalog.push(createProduct(index));
+			})
+		}
+		function createProduct(index) {
+			return {
+				name: pName[index],
+				price: pPrice[index],
+
+			}
+		}
+		getObjects ();
+
+		function drawProduct(array) {
+			let container = document.querySelector ('.container');
+			let itemProduct = '';
+			array.forEach(item => {
+				itemProduct += `
+				<div class="itemDiv">
+				<h2>${item.name}</h2>
+				<div class="productImage"></div>
+				<br>
+				<p>${item.price}</p>
+				<button onclick = addToCart ()>Add to cart</button>
+				</div>
+				`
+			});
+			container.innerHTML += itemProduct ;
+		}
+		drawProduct(pCatalog);
+
+
+
+
+	</script>	
+</body>
+</html>

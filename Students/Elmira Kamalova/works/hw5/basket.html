@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Basket</title>
+</head>
+<body>
+	
+
+	<script>
+		let products = ['pulover', 'throusers', 'hat'];
+		let prices = ['1000', '2000', '1500'];
+		let ids = [1, 2, 3];
+
+		let catalog = {
+			items: []
+		}
+
+		let basket = {
+			items: []
+		}
+
+
+		let createItem = index => ({
+			product_name: names[index],
+			price: prices[index],
+			id_product: ids[index]
+		});
+
+		let fillCatalog = () => {
+			ids.forEach((el, index) => {
+				catalog.item.push(createItem(index));
+			});
+		};
+
+		fillCatalog();
+		
+	</script>
+</body>
+</html>

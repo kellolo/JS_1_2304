@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Игра быки и коровы</title>
+</head>
+<body>
+	<h1>Игра быки и коровы</h1>
+	<h4>Правила игры</h4>
+		<ul>
+			<li>В игре принимает участие два человека, каждый из которых в начале игры загадывает 4-х значное число. Цифры в загаданном числе не должны повторяться.</li>
+			<li>Противники по очереди пытаются отгадать число оппонента, задавая вопрос в таком же формате 4-х значного числа.</li>
+			<li>Противник в ответе должен указать количество быков и коров. Бык - это угаданная цифра на правильной позиции, а корова- это правильная цифра , но не на своей позиции.</li>
+			<li>Ввод цифр идёт до тех пор пока кто-то первым не разгадает число противника.</li>
+		</ul>
+		<button onclick="game()">Новая игра</button><br><br>
+		Введите 4 цифры <input type="number" class="compare-numbers"> <button onclick="startGame()">Проверка</button> <br>
+		<p id="changePh" class="change"></p>
+			<script>
+				
+				let newArr = [];
+
+				function game() {
+					while (newArr.length < 4) {
+						let randomNum = Math.floor(Math.random() * 10);
+
+						if (!newArr.includes(randomNum)) {
+							newArr.push(randomNum);
+						}
+
+					} console.log(newArr);
+				}
+
+
+				function startGame() {
+					let userString = document.querySelector('.compare-numbers');
+					//let userArr = strarr2intarr(userString.value.split(''));
+					let userArrString = userString.value.split('');
+					let userArrInt = strToInt(userArrString);
+					compareArr(newArr, userArrInt);
+
+				}
+
+				function strToInt(a) {
+					// функция принимает в качестве агрумента массив строк
+					// возвращает массив чисел
+					let userArrReturn = [];
+					for (let i = 0; i <= a.length - 1; i++) {
+						if (!userArrReturn.includes(+a[i])) {
+							userArrReturn.push(+a[i]);
+						} else {
+							alert("Числа не должны повторяться.");
+							break;
+						}
+
+					}
+					return userArrReturn;
+				}
+
+				function compareArr(arr1, arr2) {
+					let bulls = 0;
+					let cows = 0;
+					for (let i = 0; i <= arr1.length - 1; i++) {
+						if (arr1[i] == arr2[i]) {
+							bulls++;
+						} else if (arr1.includes(arr2[i])) {
+							cows++;
+						} 
+					}
+					if (bulls == 4) {
+						document.getElementById('changePh').innerHTML = "Отлично, вы угадали!" + "<br>Быков " + bulls + ", коров " + cows;
+						console.log("Отлично, вы угадали!");
+					} else {
+						document.getElementById('changePh').innerHTML = "Ваш выбор " + arr2 + "<br>Быков " + bulls + ", коров " + cows;
+						console.log("Быков " + bulls + ", коров " + cows);
+					}
+				}
+
+				
+	
+
+			</script>
+</body>
+</html>

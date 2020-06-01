@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sum(a, b) {
+            return a + b;
+        }
+        function dif(a, b) {
+            return a - b;
+        }
+        function mult(a, b) {
+            return a * b;
+        }
+        function div(a, b) {
+            return a / b;
+        }
+        function mathOperation(arg1, arg2, operation) {
+            switch(operation) {
+                case "+": return sum(arg1, arg2);
+                case "-": return dif(arg1, arg2);
+                case "*": return mult(arg1, arg2);
+                case "/": return div(arg1, arg2); 
+                default: return "Введен неверный оператор!"
+            }
+        }
+        let num1 = +prompt("Введите первое число: ");
+        let num2 = +prompt("Введите второе число: ");
+        let op = prompt("Введите оператор (+, -, *, /):");
+        console.log(num1 + " " + op + " " + num2 + " = " + mathOperation(num1, num2, op));
+    </script>
+</body>
+</html>

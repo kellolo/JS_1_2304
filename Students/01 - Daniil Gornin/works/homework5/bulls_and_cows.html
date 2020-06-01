@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .gameButton {
+            width: 80px;
+            height: 30px;
+            border-radius: 5px;
+            background-color: #f7f7f7;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .gameLog {
+            background-color: #f7f7f7;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div style="display: flex">
+        <a class="gameButton" onclick="game()">Начать</a>
+        <a class="gameButton" onclick="findOut()">Отгадать</a>
+    </div>
+    <input style="height: 50px; width: 150px; margin: 20px" id="gameInput">
+    <div class="gameLog">
+
+    </div>
+    <script>
+        gameLog = document.querySelector('.gameLog');
+        let goal = 0;
+        let ans = false;
+        let playing = true;
+
+        function game() {
+            //общая функция
+            goal = getGoalNumber();
+            let rounds = 10;
+            let playing = true;
+            if(rounds > 0) {
+                playing ? gameLog.innerHTML += ('Осталось ' + --rounds + ' ходов') : gameLog.innerHTML += ('Вы выиграли: ' + goal);
+            } else {
+                playing = false;
+                gameLog.innerHTML += ('Кончились ходы, было загадано: ' + goal);
+            }
+        }
+
+        function getRandom() {
+            return Math.floor(Math.random() * 10); // 0 - 9
+        }
+
+        function ansGes() {
+            ans = true;
+        }
+        function getGoalNumber() {
+            let arr = [];
+            while(arr.length < 4) {
+                let num = getRandom();
+                if(!arr.includes(num)) {
+                    arr.push(num);
+                }
+            }
+            return arr;
+        }
+
+        function findOut() {
+            let user = [...document.getElementsByClassName('gameLog')];
+            let bulls = 0;
+            let cows = 0;
+
+            user.forEach((el, index) => {
+                if (el == goal[index]) {
+                    bulls++;
+                } else if (goal.includes(+el)) {
+                    cows++;
+                }
+            })
+
+            gameLog.innerHTML += (`Ваш вариант ${user}`);
+            gameLog.innerHTML += (`Коров: ${cows}; Быков: ${bulls}`);
+
+            bulls === 4 ? playing = false : playing = true;
+            game();
+        }
+    </script>
+</body>
+</html>

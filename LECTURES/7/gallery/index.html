@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="gallery">
+            <img width="300" height="250" src="https://cs8.pikabu.ru/post_img/big/2017/12/25/5/1514188160141511997.jpg" alt="" class="main">
+            <div class="roulette">
+
+            </div>
+            <button name="control" data-val="-1"> <<< </button>
+            <button name="control" data-val="1"> >>> </button>
+        </div>
+    </div>
+    <script>
+        let gallery = {
+            items: [
+                'https://cs8.pikabu.ru/post_img/big/2017/12/25/5/1514188160141511997.jpg', 
+                'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/HMUB2?wid=1144&hei=1144&fmt=jpeg&qlt=80&op_usm=0.5,0.5&.v=1563827752399',
+                'https://zeon18.ru/files/item/Xiaomi-Mi-Notebook-Air-4G-Officially-Announced-Weboo-co-2%20(1)_1.jpg',
+                'https://files.sandberg.it/products/images/lg/640-05_lg.jpg',
+                'https://images-na.ssl-images-amazon.com/images/I/81PLqxtrJ3L._SX466_.jpg'
+            ],
+            containerRoulette: '.roulette',
+            init() {
+                this._createRoulette();
+                this._handleEvents();
+            },
+            _createRoulette() {
+                let str = '';
+                this.items.forEach(item => {
+                    str += `<img width="100" height="80" src="${item}">`
+                });
+                this._render(str);
+            },
+            _render(htmlString) {
+                document.querySelector(this.containerRoulette).innerHTML = htmlString;
+            },
+            _handleEvents() {
+                let roulette = document.querySelector(this.containerRoulette);
+                roulette.addEventListener('click', evt => {
+                    if (evt.target.tagName === 'IMG') {
+                        document.querySelector('.main').src = evt.target.src;
+                    }
+                });
+
+                document.querySelector('#gallery').addEventListener('click', evt => {
+                    if (evt.target.name === 'control') {
+                        this._swapImage(+evt.target.dataset.val);
+                    }
+                })
+            },
+            _swapImage(step) {
+                let mainPic = document.querySelector('.main');
+                let actual = this.items.indexOf(mainPic.src);
+
+                if (actual === this.items.length - 1 && step === 1) actual = -1;
+                if (actual === 0 && step === -1) actual = this.items.length;
+
+                mainPic.src = this.items[actual + step];
+            }
+        };
+
+
+        gallery.init();
+    </script>
+</body>
+</html>
