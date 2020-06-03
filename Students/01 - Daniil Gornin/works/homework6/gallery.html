@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .second_img {
+            height: 300px;
+            width: 300px;
+        }
+
+        .button {
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://via.placeholder.com/150" alt="150" id="main_img" style="height: 600px; width: 600px">
+    <div style="display: flex">
+        <button class="button" onclick="prev_src()">Назад</button>
+        <button class="button" onclick="next_src()">Впред</button>
+    </div>
+    <div style="display: flex" class="container">
+        <img src="https://via.placeholder.com/150" class="second_img" alt="150">
+        <img src="https://via.placeholder.com/200" class="second_img" alt="200">
+        <img src="https://via.placeholder.com/250" class="second_img" alt="250">
+        <img src="https://via.placeholder.com/300" class="second_img" alt="300">
+        <img src="https://via.placeholder.com/350" class="second_img" alt="350">
+        <img src="https://via.placeholder.com/400" class="second_img" alt="400">
+    </div>
+    <h1>Задание с корзиной в папке проекта</h1>
+    <script>
+        // ------------------------------Задание с корзиной в папке проекта---------------------------------------------
+        let container = document.querySelector('.container');
+        let main_img = document.querySelector('#main_img');
+        let a = NaN;
+        container.addEventListener('click', eventFunction);
+
+        function eventFunction(evt) {
+            if (evt.target.className === 'second_img') {
+                main_img.src = evt.target.src;
+                main_img.alt = evt.target.alt;
+            }
+        }
+
+        function next_src() {
+
+        }
+
+        function prev_src() {
+
+        }
+
+        // ------------------------------Задание с корзиной в папке проекта---------------------------------------------
+    </script>
+</body>
+</html>
